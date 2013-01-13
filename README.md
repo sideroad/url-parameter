@@ -6,7 +6,7 @@ You can change URL parameter key, value then click "Submit" button or keydown "E
 
 Install
 -------
-Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/url-params/efaideldlecoepclpcjocddljcbfhamm)
+Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/url-parameter/efaideldlecoepclpcjocddljcbfhamm)
 
 Advanced
 ---------
