@@ -1,6 +1,6 @@
 Manipulate URL Parameter for chrome extensions
 ==============================================
-![Screen shot](https://github.com/sideroad/urlparams/raw/master/screen-shot.png)
+![Screen shot](https://github.com/sideroad/url-parameter/raw/master/screen-shot.png)
 
 You can change URL parameter key, value then click "Submit" button or keydown "Enter"
 
