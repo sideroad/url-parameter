@@ -1,5 +1,5 @@
 /*global chrome,window document*/
-(function(){
+;(function(){
   "use strict";
   /**
    use Manifest of webRequest, webBlockingRequest, experimental
@@ -13,18 +13,9 @@
   // );
 
   // Called when the user clicks on the browser action.
-  var isShow = false,
-      isLoaded = false;
-
-
   chrome.browserAction.onClicked.addListener(function(tab) {
-
     chrome.tabs.insertCSS(null, {file:"css/bootstrap.min.css"});
-    chrome.tabs.insertCSS(null, {file:"css/urlparams.css"});
-    chrome.tabs.executeScript(null, {file:"js/jquery.js"});
-    chrome.tabs.executeScript(null, {file:"js/bootstrap.min.js"});
-    chrome.tabs.executeScript(null, {file:"js/handlebars.js"});
-    chrome.tabs.executeScript(null, {file:"js/main.js"});
+    chrome.tabs.executeScript(null, {file:"js/main.min.js"});
 
   });
 

@@ -6,7 +6,7 @@
     return;
   }
   var url = location.href.split("?")[0],
-      query = location.href.split("?")[1]||"",
+      query = location.search.substr(1)||"",
       data = {
         url: url,
         params: []
@@ -40,6 +40,7 @@
 								'</div>'),
       $el,
       $narrow,
+      $body = $(document.body),
       submit = function(){
         var list = [],
             q = "";
@@ -51,13 +52,14 @@
           list.push( encodeURIComponent( key ) + "=" + encodeURIComponent( val ) );
         });
         q = list.join("&");
-        location.href = data.url + ( q ? "?" + q : "");
+        location.href = data.url + ( q ? "?" + q : "") + location.hash;
 
       };
 
   query.split("&").forEach(function(str){
     var key = str.split("=")[0],
         val = str.split("=")[1];
+    if( key === "" && typeof val === 'undefined' ) return;
     data.params.push({
       key: decodeURIComponent( key ),
       val: decodeURIComponent( val )
@@ -71,7 +73,6 @@
 
   $el = $(temp(data));
   $narrow = $el.find("input.narrow");
-  $(document.body).append($el).scrollTop(0);
   $el.delegate('input.param', 'keydown', function(ev){
       var $this, attr;
       if(ev.keyCode === 13){
@@ -107,6 +108,9 @@
       } else {
         $el.find( '.urlparams-tr' ).hide();
         $el.find( '[data-urlparams-name*="'+val+'"], [data-urlparams-value*="'+val+'"]' ).show();
+        if( ev.keyCode === 13 ){
+          $el.find( 'input.param:visible:first' ).focus();
+        }
       }
     })
     .delegate('a.urlparams-clear', 'click', function(){
@@ -123,7 +127,11 @@
       $tr.find(".delete").addClass("disabled");
       $el.find("#urlparams-tbody").append($tr);
     });
+
+  $body.append($el);
   $narrow.focus();
   $el.find(".urlparams-tr:last").find(".delete").addClass("disabled");
+
+  $body.scrollTop(0);
 
 })(this, jQuery, this.Handlebars);

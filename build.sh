@@ -1,4 +1,7 @@
-rm -R dist/*
+rm -Rf dist/*
+lessc --compress less/bootstrap.less > css/bootstrap.min.css
+
+grunt
 cp -R css dist
 cp -R img dist
 cp -R js dist
