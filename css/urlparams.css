@@ -12,6 +12,12 @@
 	margin-bottom: 0;
 	height: 100%;
 }
+.urlparams-narrow{
+	margin: 10px;
+}
+.urlparams-clear{
+	margin-left: 10px;
+}
 .center{
 	text-align: center;
 	margin-bottom: 10px;
